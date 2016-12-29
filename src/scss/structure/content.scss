@@ -191,6 +191,10 @@
           }
         }
 
+        &.sortable-chosen {
+          cursor: move;
+        }
+
         &.sortable-ghost {
           opacity: 0.5;
           border: 2px dashed #000;

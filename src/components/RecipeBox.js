@@ -14,12 +14,16 @@ export default class RecipeBox extends React.Component {
     this.state = {
       current: null,
       editing: null,
-      items: []
+      items: JSON.parse(localStorage.getItem('state')).items || []
     }
     // Modal Style object
     this.modalStyle = {
       width: '60%'
     }
+  }
+
+  componentDidUpdate () {
+    localStorage.setItem('state', JSON.stringify(this.state))
   }
 
   addItem (e) {
@@ -57,11 +61,13 @@ export default class RecipeBox extends React.Component {
   }
 
   clearAllData () {
-    this.setState({
+    const state = {
       current: null,
       editing: null,
       items: []
-    })
+    }
+    localStorage.setItem('state', JSON.stringify(state))
+    this.setState(state)
   }
 
   _onShow (index, e) {
@@ -83,7 +89,7 @@ export default class RecipeBox extends React.Component {
   updaterecipesOrder (o, c, event) {
     const result = utils.arrayMoveItem(this.state.items, event.oldIndex, event.newIndex)
     this.setState({
-      current: event.newIndex,
+      current: null,
       items: result
     })
   }
@@ -204,7 +210,10 @@ export default class RecipeBox extends React.Component {
         </div>
         <div className="recipe-box-app">
           <div className="dynamic-block">
-            <Sortable tag="ul" onChange={this.updaterecipesOrder.bind(this)}>
+            <Sortable
+              tag="ul"
+              onChange={this.updaterecipesOrder.bind(this)}
+            >
               {this.renderItems()}
             </Sortable>
             {this.renderButtons()}
