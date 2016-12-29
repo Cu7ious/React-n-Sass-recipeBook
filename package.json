@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --port 3003",
-    "bundle": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js"
+    "bundle": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js && rm static/style.js"
   },
   "keywords": [],
   "author": "Cu7ious",

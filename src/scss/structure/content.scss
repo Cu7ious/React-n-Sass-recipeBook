@@ -190,6 +190,17 @@
             opacity: 1;
           }
         }
+
+        &.sortable-ghost {
+          opacity: 0.5;
+          border: 2px dashed #000;
+        }
+      }
+
+      li.no-items {
+        a {
+          color: $MAIN_COLOR;
+        }
       }
     }
 

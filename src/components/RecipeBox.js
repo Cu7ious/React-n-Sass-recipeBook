@@ -83,8 +83,7 @@ export default class RecipeBox extends React.Component {
   updaterecipesOrder (o, c, event) {
     const result = utils.arrayMoveItem(this.state.items, event.oldIndex, event.newIndex)
     this.setState({
-      current: null,
-      editing: null,
+      current: event.newIndex,
       items: result
     })
   }
