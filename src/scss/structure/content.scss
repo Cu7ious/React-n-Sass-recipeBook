@@ -14,7 +14,7 @@
       width: 100%;
     }
   }
-  .todo-app {
+  .recipe-box-app {
     padding: 55px 0;
     display: block;
     text-align: center;
@@ -25,6 +25,7 @@
       text-align: initial;
       min-width: 40vw;
       max-width: 60vw;
+      box-sizing: border-box;
       background-color: rgba(255, 255, 255, 0.8);
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 25px;
@@ -37,21 +38,15 @@
           min-width: 70vw;
         }
     }
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 600px) {
       display: block;
       padding: 8px 5px;
         .dynamic-block {
-          min-width: 96.5vw;
+          min-width: 97.3vw;
         }
         ul li {
           font-size: 20px !important;
         }
-    }
-    @media screen and (max-width: 400px) {
-      .dynamic-block {
-        min-width: 390px;
-        width: 390px;
-      }
     }
 
     ul {
@@ -114,9 +109,14 @@
           display: inline-block;
           overflow: hidden;
           text-align: center;
-          min-width: 200px;
+          width: 100%;
+          box-sizing: border-box;
           border-bottom: 1px solid transparent;
           padding: 0 25px;
+          max-height: 55px;
+          line-height: 44px;
+          height: 55px;
+
           button {
             margin: 0 3px;
             padding: 10px;
@@ -148,6 +148,17 @@
           }
         }
 
+        .header {
+          text-align: center;
+          font-size: 22px;
+          display: block;
+          padding: 0px 50px;
+          width: 100%;
+          box-sizing: border-box;
+          max-height: 55px;
+          height: 55px;
+          border-bottom: 1px solid #e0e0e0;
+        }
         li {
           display: block;
           padding: 0px 50px;
@@ -157,11 +168,6 @@
           max-height: 55px;
           height: 55px;
           border-bottom: 1px solid #e0e0e0;
-
-          &.header {
-            text-align: center;
-            font-size: 22px;
-          }
         }
 
         &:hover {

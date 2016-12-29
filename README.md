@@ -1,5 +1,7 @@
-#React'n'Sass Classic ToDo App
+#React'n'Sass Recipe Box
 
-It was built just for fun)
+FreeCodeCamp educational project for "React Projects" section
 
-Link to preview on [Codepen.io](https://codepen.io)
+Link to [task](https://www.freecodecamp.com/challenges/build-a-recipe-box)
+
+Link to preview on [Codepen.io](http://codepen.io/Cu7ious/full/PbMKdb/)

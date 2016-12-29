@@ -1,7 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Sortable from 'react-sortablejs';
 import Modal from 'boron/ScaleModal'
 
+import BoxItem from './BoxItem'
+
+import utils from '../utils'
 import data from '../data'
 
 export default class RecipeBox extends React.Component {
@@ -22,7 +26,7 @@ export default class RecipeBox extends React.Component {
     let name = this.refs.recipeName.value
     let stuff = this.refs.recipeIngridients.value
 
-    name = name ? this._toUpperCase(name) : 'Untitled'
+    name = name ? utils.capitalize(name) : 'Untitled'
     this.state.items.push(
       {name, ingridients: stuff, editing: null},
     )
@@ -63,7 +67,7 @@ export default class RecipeBox extends React.Component {
   _onShow (index, e) {
     let name = this.refs.recipeName.value
     let stuff = this.refs.recipeIngridients.value
-    this.state.items[index].name = name ? this._toUpperCase(name) : 'Untitled'
+    this.state.items[index].name = name ? utils.capitalize(name) : 'Untitled'
     this.state.items[index].ingridients = stuff
 
     this.setState({items: this.state.items, editing: null})
@@ -72,8 +76,17 @@ export default class RecipeBox extends React.Component {
 
   toggleCurentRecipe (current, e) {
     e.preventDefault()
-    current = (this.state.current === current)  ? false : current
+    current = (this.state.current === current)  ? null : current
     this.setState({current})
+  }
+
+  updaterecipesOrder (o, c, event) {
+    const result = utils.arrayMoveItem(this.state.items, event.oldIndex, event.newIndex)
+    this.setState({
+      current: null,
+      editing: null,
+      items: result
+    })
   }
 
   openFormDialog (e = null) {
@@ -85,14 +98,6 @@ export default class RecipeBox extends React.Component {
 
   closeFormDialog () {
     this.refs.recipeFormModal.hide()
-  }
-
-  _toUpperCase (text) {
-    text = (text.charAt(0) === ' ') ? text.replace(' ', '') : text
-    return text.replace(
-      text.charAt(0),
-      text.charAt(0).toUpperCase()
-    )
   }
 
   _next (e) {
@@ -109,29 +114,21 @@ export default class RecipeBox extends React.Component {
   renderItems () {
     if (this.state.items.length) {
       return this.state.items
-        .map((item, index) => {
-          const classes = (this.state.current === index) ? ' opened' : ''
-          const ingridients = item.ingridients.split(',').map((ingridient, idx) => {
-            if (ingridient)
-              return <li key={idx}>{this._toUpperCase(ingridient)}</li>
-          })
-          const length = (ingridients[0]) ? ingridients.length : 0
-          const styles = (this.state.current === index) ? {height: (55 * length + 55 + 55) + 'px'} : {}
-
-          return (
-            <li key={index} className={`recipe${classes}`}>
-              <a onClick={this.toggleCurentRecipe.bind(this, index)} href="#">{item.name}</a>
-              <ol className="toggle-inner" style={styles}>
-                <li className="header">Ingridients</li>
-                {ingridients}
-                <li className="filters-block">
-                  <button onClick={this.editItem.bind(this, index)}>Edit</button>
-                  <button onClick={this.removeItem.bind(this, index)}>Delete</button>
-                </li>
-              </ol>
-            </li>
-          )
-        })
+        .map((item, index) =>
+          <BoxItem
+            dataIdAttr="index"
+            key={index}
+            index={index}
+            ingridients={item.ingridients.split(',')}
+            current={this.state.current == index}
+            name={item.name}
+            actions={{
+              toggle: this.toggleCurentRecipe.bind(this, index),
+              edit: this.editItem.bind(this, index),
+              remove: this.removeItem.bind(this, index)
+            }}
+          />
+      )
     }
     return <li className="no-items">There's no items. <a href="#" onClick={this.openFormDialog.bind(this)}>Add one</a></li>
   }
@@ -206,11 +203,11 @@ export default class RecipeBox extends React.Component {
         <div className="panel">
           <h3>Recipes</h3>
         </div>
-        <div className="todo-app">
+        <div className="recipe-box-app">
           <div className="dynamic-block">
-            <ul>
+            <Sortable tag="ul" onChange={this.updaterecipesOrder.bind(this)}>
               {this.renderItems()}
-            </ul>
+            </Sortable>
             {this.renderButtons()}
           </div>
         </div>
