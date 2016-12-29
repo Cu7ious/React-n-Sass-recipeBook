@@ -1,0 +1,34 @@
+{
+  "name": "recipe-box",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --port 3003",
+    "bundle": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "Cu7ious",
+  "license": "ISC",
+  "dependencies": {
+    "boron": "^0.2.3",
+    "normalize-scss": "^5.0.3",
+    "react": "^15.4.1",
+    "react-dnd": "^2.1.4",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react-es2015": "^1.2.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.7.0",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

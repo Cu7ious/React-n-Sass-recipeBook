@@ -1,0 +1,80 @@
+.app-main-header {
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: $MainMenuHeight;
+  top: 0;
+  background-color: $MAIN_COLOR;
+  border-bottom: 4px solid $MAIN_COLOR_DARK;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+
+  h1 {
+    margin: 0;
+    svg {
+      margin: -50px 0 0 53px;
+      display: block;
+      height: 27px;
+    }
+    span {
+      font-weight: 100;
+      font-style: italic;
+      position: absolute;
+      top: 13px;
+      color: #fff;
+      font-size: 24px;
+      left: 90px;
+    }
+  }
+  #app-main-nav-button {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAQAAAAB/ecQqAAAAAnRSTlMAAHaTzTgAAAAWSURBVHgBY6AFYP4PBAewUoPbFMoBAE11OPW6yVcZAAAAAElFTkSuQmCC') no-repeat center center;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+    background-size: 50%;
+  }
+  .app-main-nav {
+    ul {
+      li {
+
+      }
+    }
+  }
+  .by-cu7ious {
+    text-align: center;
+    // img {
+    //   display: inline-block;
+    //   width: 125px;
+    //   margin: 21px 0 0;
+    // }
+    svg {
+      display: inline-block;
+      width: 125px;
+      margin: 6px 0 0;
+    }
+    @media screen and (max-width: 700px) {
+      text-align: right;
+      // img {
+      //   width: 60%;
+      // }
+      svg {
+        width: 60%;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+  .github-badge {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    svg {
+
+    }
+  }
+  .app-main-nav {
+    display: none;
+  }
+}

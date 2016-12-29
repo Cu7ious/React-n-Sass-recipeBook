@@ -1,0 +1,33 @@
+.main-footer {
+  position: absolute;
+  bottom: 90px;
+  width: 100%;
+  text-align: center;
+  p {
+    margin-left: -165px;
+    font-size: 12px;
+    font-style: italic;
+    color: #3d4255;
+  }
+  a {
+    text-decoration: none;
+    svg {
+      width: 100px;
+      bottom: -6px;
+      position: absolute;
+      margin-left: 5px;
+      path {
+        transition: all .4s linear;
+      }
+      &:hover {
+        path {
+          fill: #008bd2;
+        }
+        path:last-child {
+          fill: inherit;
+          stroke: #008bd2;
+        }
+      }
+    }
+  }
+}

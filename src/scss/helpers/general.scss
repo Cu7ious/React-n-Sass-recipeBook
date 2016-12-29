@@ -1,0 +1,32 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-width: 400px;
+  font-family: $FontName;
+  padding-top: $MainMenuHeight;
+  margin: 0;
+  height: 93%;
+  &.active-left-place {
+    overflow: hidden;
+  }
+}
+
+.column {
+  flex: 1;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+#main-sidebar,
+#magnet-overlay,
+.active-left-place #magnet-overlay {
+  @include transition(all, 0.5s, ease-in-out);
+}

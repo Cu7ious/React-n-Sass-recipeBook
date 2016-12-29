@@ -1,0 +1,6 @@
+@mixin transition($prop, $time, $type) {
+  -webkit-transition: $prop $time $type;
+  -moz-transition: $prop $time $type;
+  -ms-transition: $prop $time $type;
+  transition: $prop $time $type;
+}
