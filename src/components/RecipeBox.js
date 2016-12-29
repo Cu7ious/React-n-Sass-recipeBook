@@ -11,10 +11,13 @@ import data from '../data'
 export default class RecipeBox extends React.Component {
 
   componentWillMount () {
+    let storage = JSON.parse(localStorage.getItem('state'))
+    storage = storage ? storage.items : []
+
     this.state = {
       current: null,
       editing: null,
-      items: JSON.parse(localStorage.getItem('state')).items || []
+      items: storage
     }
     // Modal Style object
     this.modalStyle = {
