@@ -14,6 +14,7 @@
       width: 100%;
     }
   }
+
   .recipe-box-app {
     padding: 55px 0;
     display: block;
@@ -30,23 +31,27 @@
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 25px;
     }
-
+    
     @media screen and (max-width: 850px) {
       display: block;
       padding: 8px 5px;
-        .dynamic-block {
-          min-width: 70vw;
-        }
+
+      .dynamic-block {
+        min-width: 70vw;
+      }
     }
+
     @media screen and (max-width: 600px) {
       display: block;
       padding: 8px 5px;
-        .dynamic-block {
-          min-width: 97.3vw;
-        }
-        ul li {
-          font-size: 20px !important;
-        }
+
+      .dynamic-block {
+        min-width: 97.3vw;
+      }
+
+      ul li {
+        font-size: 20px !important;
+      }
     }
 
     ul {
@@ -72,7 +77,6 @@
         width: 100%;
         min-height: 55px;
         font-size: 30px;
-        // box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.1) inset;
         font-weight: 100;
         line-height: 55px;
         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -101,7 +105,7 @@
           opacity: 0;
           overflow: hidden;
           height: 0;
-          transition: all .5s linear;
+          transition: all 0.5s linear;
           padding: 0;
         }
 
@@ -125,22 +129,24 @@
             cursor: pointer;
             outline: none;
             background-color: #fff;
-            transition: all .9s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+            transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1) 0;
             border-radius: 2px;
+
             &:first-child {
               background-color: rgba(0, 112, 255, 0.25);
-              &:hover,
+
               &:focus,
-              {
+              &:hover {
                 background-color: rgba(0, 112, 255, 0.4);
                 box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15) inset;
               }
             }
+
             &:last-child {
               background-color: rgba(255, 0, 0, 0.25);
-              &:hover,
+
               &:focus,
-              {
+              &:hover {
                 background-color: rgba(255, 0, 0, 0.4);
                 box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15) inset;
               }
@@ -152,16 +158,17 @@
           text-align: center;
           font-size: 22px;
           display: block;
-          padding: 0px 50px;
+          padding: 0 50px;
           width: 100%;
           box-sizing: border-box;
           max-height: 55px;
           height: 55px;
           border-bottom: 1px solid #e0e0e0;
         }
+
         li {
           display: block;
-          padding: 0px 50px;
+          padding: 0 50px;
           font-size: 18px;
           width: 100%;
           box-sizing: border-box;
@@ -170,12 +177,9 @@
           border-bottom: 1px solid #e0e0e0;
         }
 
-        &:hover {
-
-        }
+        &:hover {}
 
         &.opened {
-          // padding: 0 0 10px;
 
           a {
             &:after {
@@ -207,7 +211,6 @@
         }
       }
     }
-
   }
 
   input,
@@ -222,8 +225,10 @@
     position: fixed;
     right: 35px;
     bottom: 20px;
+
     ul {
       list-style: none;
+
       li {
         width: 56px;
         height: 53px;
@@ -237,6 +242,7 @@
         line-height: 56px;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
         cursor: pointer;
+
         &:last-child {
           &::after {
             content: '+';
@@ -277,6 +283,7 @@
           top: 15px;
           left: -104px;
         }
+
         &:hover {
           &:last-child {
             &::after {
@@ -290,7 +297,6 @@
 }
 
 .modal {
-
   & > div {
     padding: 35px;
   }
@@ -299,6 +305,7 @@
     h3 {
       margin: 0;
     }
+
     button {
       position: absolute;
       top: 0;
@@ -310,7 +317,8 @@
       font-size: 32px;
       cursor: pointer;
       outline: none;
-      transition: color .3s linear;
+      transition: color 0.3s linear;
+
       &:hover {
         color: #6b6b6b;
       }
@@ -345,6 +353,7 @@
 
   footer {
     text-align: right;
+
     button {
       display: inline-block;
       margin: 0 3px;
@@ -354,13 +363,14 @@
       cursor: pointer;
       outline: none;
       background-color: #fff;
-      transition: all .9s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1) 0;
       border-radius: 2px;
+
       &:first-child {
         background-color: rgba(0, 112, 255, 0.25);
-        &:hover,
+
         &:focus,
-        {
+        &:hover {
           background-color: rgba(0, 112, 255, 0.4);
           box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15) inset;
         }
