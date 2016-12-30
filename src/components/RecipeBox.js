@@ -11,7 +11,7 @@ import data from '../data'
 export default class RecipeBox extends React.Component {
 
   componentWillMount () {
-    let storage = JSON.parse(localStorage.getItem('state'))
+    let storage = JSON.parse(localStorage.getItem('recipeBoxState'))
     storage = storage ? storage.items : []
 
     this.state = {
@@ -26,7 +26,7 @@ export default class RecipeBox extends React.Component {
   }
 
   componentDidUpdate () {
-    localStorage.setItem('state', JSON.stringify(this.state))
+    localStorage.setItem('recipeBoxState', JSON.stringify(this.state))
   }
 
   addItem (e) {
@@ -69,7 +69,7 @@ export default class RecipeBox extends React.Component {
       editing: null,
       items: []
     }
-    localStorage.setItem('state', JSON.stringify(state))
+    localStorage.setItem('recipeBoxState', JSON.stringify(state))
     this.setState(state)
   }
 
